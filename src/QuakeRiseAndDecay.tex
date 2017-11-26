@@ -4,7 +4,14 @@
 %	For supporting accents (yep, my full name has two of them)
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
+	%	Creating default inline TODOs
+	\usepackage{blindtext}
+	\usepackage[colorinlistoftodos,prependcaption]{todonotes}
+	\usepackage{regexpatch}
+	%\tracingxpatches%for debugging
+	\makeatletter
+	\xpatchcmd{\@todo}{\setkeys{todonotes}{#1}}{\setkeys{todonotes}{inline,#1}}{}{}
+	\makeatother
 
 %	Setting up my new commands
 \newcommand*{\ContentPath}{./content}%
@@ -16,12 +23,15 @@
 
 \maketitle
 
+\listoftodos
+
 \begin{abstract}
 
 \end{abstract}
 
 %	Finding out why we cannot include this
 \section{Introduction}
+\todo{Complete the introduction}
 \input{content/introduction}
 
 \section{The History}
