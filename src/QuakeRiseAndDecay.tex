@@ -1,10 +1,18 @@
+
+
 \documentclass[twocolumn]{article}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 								PACKAGE CONFIGURATION								%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %	For supporting accents (yep, my full name has two of them)
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-	%	Creating default inline TODOs
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+
+
+%	Creating default inline TODOs
 	\usepackage{blindtext}
 	\usepackage[colorinlistoftodos,prependcaption]{todonotes}
 	\usepackage{regexpatch}
@@ -12,9 +20,36 @@
 	\makeatletter
 	\xpatchcmd{\@todo}{\setkeys{todonotes}{#1}}{\setkeys{todonotes}{inline,#1}}{}{}
 	\makeatother
+	
+%	Bibliography
+	\usepackage{natbib}
+	\bibliographystyle{agsm}
+	\usepackage[nottoc]{tocbibind}
+	\renewcommand{\harvardurl}[1]{[Online] URL: \url{#1}}
+		
+%	URLs
+	\usepackage[hyphens]{url}
+	\usepackage[hidelinks]{hyperref}
+	\hypersetup{breaklinks=true}
+	\urlstyle{same}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 								COMMAND CONFIGURATION								%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %	Setting up my new commands
 \newcommand*{\ContentPath}{./content}%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 										CONTENT										%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \title{Quake: The Rise and Decay of the Grandfather of eSports}
 \author{Rubén Osorio López}
@@ -23,25 +58,27 @@
 
 \maketitle
 
-\listoftodos
-
 \begin{abstract}
+
+We will take a look at why and how Quake laid the first stone in the creation of eSports as we know them today to then degrade in popularity to the point that it is currently. We will examine the different reasons that caused it to be the number one competitive eSport at the time as well as analyse how those ceased to be an advantage over time. The analysis will relate to events that happened in the late 90s early 2000s (1997-2001), the period that encompasses the birth of Quake as an eSport, its rise to the top and the final decline at the hands of other competitive games like Counter-Strike.
 
 \end{abstract}
 
-%	Finding out why we cannot include this
-\section{Introduction}
-\todo{Complete the introduction}
+%	Here we include all the files that contain the different sections of the document
 \input{content/introduction}
-
-\section{The History}
 \input{content/history}
-
-\section{The reasoning}
 \input{content/reasoning}
-
-\section{Conclusion}
 \input{content/conclusion}
+
+
+%	And Here we have the bibliography citations
+%	NOTE: Use \citep{id} to cite.
+\nocite{*} % Used to cite everything
+\bibliography{bibliography}
+
+%	Our In-Progress management things
+\listoftodos
+\todo{Remove the TODO list}
 
 \end{document}
 
