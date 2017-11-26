@@ -221,3 +221,10 @@ TSWLatexianTemp*
 
 
 *generated_files/*
+
+
+
+
+# Custom Ignores for this project
+
+/src/QuakeRiseAndDecay.pdf
