@@ -30,11 +30,17 @@
 %	URLs
 	\usepackage[hyphens]{url}
 	\usepackage[hidelinks]{hyperref}
+	\hypersetup{pdftex}
+	\usepackage{hypcap}
 	\hypersetup{breaklinks=true}
 	\urlstyle{same}
 	
 %	Colors
 	\usepackage{color}
+	
+%	Counting Text with TeXCount
+	%	Needs to have perl installed and in the PATH: https://www.perl.org/get.html
+	%	Needs the TeXCount perl script in the PATH: http://app.uio.no/ifi/texcount/intro.html
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,6 +51,8 @@
 \newcommand*{\ContentPath}{./content}
 
 \newcommand{\FutureContentNotes}[1]{{\color{blue}\textbf{\textit{Notes about future content}}.- {#1}}}
+
+\newcommand{\FutureContentNotesHidden}[1]{}
 
 
 
@@ -65,7 +73,7 @@
 
 \begin{abstract}
 
-We will take a look at why and how Quake laid the first stone in the creation of eSports as we know them today to then degrade in popularity to the point that it is currently. We will examine the different reasons that caused it to be the number one competitive eSport as well as analyse how those ceased to be an advantage over time. The analysis will relate to events that happened in the late 90s early 2000s (1997-2001), the period that encompasses the birth of Quake as an eSport, its rise to the top and the final decline at the hands of other competitive games like Counter-Strike.
+We will take a look1 at why and how Quake laid the first stone in the creation of eSports as we know them today to then degrade in popularity to the point that it is currently. We will examine the different reasons that caused it to be the number one competitive eSport as well as analyse how those ceased to be an advantage over time. The analysis will relate to events that happened in the late 90s early 2000s (1997-2001), the period that encompasses the birth of Quake as an eSport, its rise to the top and the final decline at the hands of other competitive games like Counter-Strike.
 
 \end{abstract}
 
@@ -80,6 +88,9 @@ We will take a look at why and how Quake laid the first stone in the creation of
 %	NOTE: Use \citep{id} to cite.
 \nocite{*} % Used to cite everything
 \bibliography{bibliography}
+
+
+
 
 %	Our In-Progress management things
 \listoftodos
