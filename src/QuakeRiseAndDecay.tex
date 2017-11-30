@@ -11,6 +11,12 @@
 	\usepackage[utf8]{inputenc}
 	\usepackage[T1]{fontenc}
 
+%	URLs
+	\usepackage[hyphens]{url}
+	\usepackage[hidelinks]{hyperref}
+	\usepackage{hypcap}
+	\hypersetup{breaklinks=true}
+	\urlstyle{same}
 
 %	Creating default inline TODOs
 	\usepackage{blindtext}
@@ -22,18 +28,13 @@
 	\makeatother
 	
 %	Bibliography
-	\usepackage{natbib}
-	\bibliographystyle{agsm}
+	\usepackage[style=authoryear, backend=bibtex]{biblatex}
+	\newcommand{\citep}[1]{\parencite{#1}}
+	\addbibresource{bibliography.bib}
 	\usepackage[nottoc]{tocbibind}
-	\renewcommand{\harvardurl}[1]{[Online] URL: \url{#1}}
-		
-%	URLs
-	\usepackage[hyphens]{url}
-	\usepackage[hidelinks]{hyperref}
-	\hypersetup{pdftex}
-	\usepackage{hypcap}
-	\hypersetup{breaklinks=true}
-	\urlstyle{same}
+	\setlength\bibnamesep{2\itemsep}
+	\setlength\bibitemsep{0.1\itemsep}
+
 	
 %	Colors
 	\usepackage{color}
@@ -92,9 +93,13 @@ We will take a look at why and how Quake laid the first stone in the creation of
 %	And Here we have the bibliography citations
 %	NOTE: Use \citep{id} to cite.
 \nocite{*} % Used to cite everything
-\bibliography{bibliography}
 
 
+\printbibliography[title={Bibliography},nottype=software] 
+\printbibliography[title={Videogames},type=software]
+
+\todo{Add publishers to video-game entries in the bibliography (example in Doom's entry)}
+\todo{Add full dates to video-game entries in the bibliography (example in Doom's entry)}
 
 
 %	Our In-Progress management things
