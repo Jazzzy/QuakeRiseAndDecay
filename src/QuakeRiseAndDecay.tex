@@ -41,6 +41,10 @@
 	\usepackage[nottoc]{tocbibind}
 	\setlength\bibnamesep{2\itemsep}
 	\setlength\bibitemsep{0.1\itemsep}
+	\renewcommand*{\nameyeardelim}{\addcomma\space}
+	\renewcommand*{\nonameyeardelim}{\addcomma\space}
+	\DeclareLabeldate{\field{date}\field{eventdate} \field{origdate}\literal{nodate}}
+	
 
 	
 %	Colors
@@ -99,7 +103,7 @@ This paper takes a look at why and how Quake laid the first stone in the creatio
 
 %	And Here we have the bibliography citations
 %	NOTE: Use \citep{id} to cite.
-\nocite{*} % Used to cite everything
+%\nocite{*} % Used to cite everything
 
 
 \printbibliography[title={Bibliography},nottype=software] 
