@@ -35,15 +35,33 @@
 	\makeatother
 	
 %	Bibliography
-	\usepackage[style=authoryear, backend=bibtex]{biblatex}
-	\newcommand{\citep}[1]{\parencite{#1}}
+	\usepackage[
+		firstinits=true, % render first and middle names as initials
+		maxcitenames=3,
+		maxbibnames=99,
+		style=authoryear,
+		dashed=false, % re-print recurring author names in bibliography
+		natbib=true,
+		backend=bibtex,
+		urldate=comp,
+		mergedate=basic,
+		]{biblatex}
+	\renewcommand{\citep}[1]{\parencite{#1}}
 	\addbibresource{bibliography.bib}
 	\usepackage[nottoc]{tocbibind}
+	\DeclareNameAlias{author}{last-first}
+	\renewcommand*{\mkbibnamefirst}[1]{{\let~\,#1}}
 	\setlength\bibnamesep{2\itemsep}
 	\setlength\bibitemsep{0.1\itemsep}
 	\renewcommand*{\nameyeardelim}{\addcomma\space}
 	\renewcommand*{\nonameyeardelim}{\addcomma\space}
+	\renewcommand*{\newunitpunct}{\addcomma\addspace} 
 	\DeclareLabeldate{\field{date}\field{eventdate} \field{origdate}\literal{nodate}}
+	\DeclareFieldFormat{url}{\addcolon\space{[online] Available at: }\url{#1}}
+	\DefineBibliographyStrings{english}{%
+		urlseen = {Accesed: },
+	}
+	
 	
 
 	
@@ -105,7 +123,7 @@ This paper takes a look at why and how Quake laid the first stone in the creatio
 %	NOTE: Use \citep{id} to cite.
 %\nocite{*} % Used to cite everything
 
-
+\clearpage
 \printbibliography[title={Bibliography},nottype=software] 
 \printbibliography[title={Videogames},type=software]
 
